@@ -1,4 +1,6 @@
-<p>
-  upload works!
-</p>
-<input type="file" (change)="file($event)"/>
+<p> upload works!</p>
+<label for="name">Upload Image</label>
+<input type="File"   style="display: none" (change)="file($event)"
+ name="image" #fileinput >
+<button  type="button" (click)="fileinput.click() ">Pick file</button>  
+<button  type="button" (click)="upload()">Upload file</button>    
