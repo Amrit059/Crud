@@ -2,24 +2,27 @@ var express = require('express');
 
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
-
+//var logger = require('morgan');
+const cors = require('cors');
 var bodyParser = require('body-parser');
 var news=require('./routes/user')
 var book = require('./routes/book');
+var fileRoute=require('./routes/file');  //file route
 var app = express();
 var mongoose = require('mongoose');
 
-app.use(logger('dev'));
 
+app.use(cors());
+//app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/books', express.static(path.join(__dirname, 'dist')));
-app.use('/news', express.static(path.join(__dirname, 'dist')));
+app.use('/user', express.static(path.join(__dirname, 'dist')));
+app.use('/file', express.static(path.join(__dirname, 'dist')));
 app.use('/book', book);
-app.use('/news',news);
-
+app.use('/user',news);
+app.use('/file',fileRoute);
 mongoose.Promise = require('bluebird');
 
 mongoose.connect('mongodb://localhost/mean-angular5',

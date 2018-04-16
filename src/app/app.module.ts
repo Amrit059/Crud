@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,9 @@ import { BookEditComponent } from './book-edit/book-edit.component';
 import { GetUserComponent } from './get-user/get-user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { UploadComponent } from './upload/upload.component';
+import { FileUploadModule } from 'ng2-file-upload';
+import { RegisterComponent } from './register/register/register.component';
+import { LoadComponent } from './load/load.component';
 
 
 const appRoutes: Routes = [
@@ -40,6 +43,16 @@ const appRoutes: Routes = [
     component: BookEditComponent,
     data: { title: 'Edit Book' }
   },
+  {
+    path: 'upload',
+    component: UploadComponent,
+    data: { title: 'Upload Image' }
+  },
+  {
+    path: 'load',
+    component:LoadComponent,
+    data: { title: 'load Image' }
+  },
   { path: '',
     redirectTo: '/books',
     pathMatch: 'full'
@@ -56,11 +69,15 @@ const appRoutes: Routes = [
     BookEditComponent,
     GetUserComponent,
     CreateUserComponent,
-    UploadComponent
+    UploadComponent,
+    RegisterComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,
+    FileUploadModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes,
       { enableTracing: true }),
     FormsModule,HttpClientModule,

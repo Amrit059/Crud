@@ -1,6 +1,49 @@
-<p> upload works!</p>
+<!-- <h3> upload works!</h3>
 <label for="name">Upload Image</label>
 <input type="File"   style="display: none" (change)="file($event)"
  name="image" #fileinput >
 <button  type="button" (click)="fileinput.click() ">Pick file</button>  
 <button  type="button" (click)="upload()">Upload file</button>    
+<div>
+ 2nd one start-->
+ <div>  <h3>New way to upload image</h3>
+<img [src]="Deafult_Img" style="width:250px;height:200px;">
+<input type="File"  accept="img/*" style="display: none" (change)="hanndleFile($event.target.files)"
+ name="image" #fileinput >
+ <button  type="button" (click)="fileinput.click() ">Pick file</button>  
+<button  type="button" (click)="upload()">Upload file</button>   
+</div>
+<!--<div class="container-fuild">
+    <div class="rowheader-sedction">
+        <span>Angular file upload</span>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row card">
+                <div class="col-sm-12">
+                    <h4>Upload section</h4>
+                    <div id="fileeselector">
+                        <input type="file"name="fileupload" id="upload"
+                        multiple ng2FileSelect [uploader]="upload">
+                    </div>
+                    <div> 
+                        <div class="row uploadlist"*ngFor="let item of upload.queue">
+                            <div class="col-sm-4">{{item.file.name}}</div>
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" class="btn btn-dark" (click)="item.upload()">Upload</button>
+                                <button type="button" class="btn btn-danger" (click)="item.remove()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">   
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>-->
